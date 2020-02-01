@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('User Management')])
+@extends('layouts.app', ['title' => __('Manajemen Pengguna')])
 
 @section('content')
     @include('layouts.headers.cards')
@@ -10,10 +10,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">{{ __('Users') }}</h3>
+                                <h3 class="mb-0">{{ __('Pengguna') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
+                                <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Tambahkan pengguna') }}</a>
                             </div>
                         </div>
                     </div>
@@ -33,9 +33,9 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">{{ __('Name') }}</th>
-                                    <th scope="col">{{ __('Email') }}</th>
-                                    <th scope="col">{{ __('Creation Date') }}</th>
+                                    <th scope="col">{{ __('Nama Lengkap') }}</th>
+                                    <th scope="col">{{ __('Alamat Email') }}</th>
+                                    <th scope="col">{{ __('Tanggal Akun Dibuat') }}</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -58,13 +58,13 @@
                                                             @csrf
                                                             @method('delete')
                                                             
-                                                            <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Edit') }}</a>
-                                                            <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
+                                                            <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Ubah') }}</a>
+                                                            <button type="button" class="dropdown-item" onclick="confirm('{{ __("And  yakin ingin menghapus akun ini?") }}') ? this.parentElement.submit() : ''">
                                                                 {{ __('Delete') }}
                                                             </button>
                                                         </form>    
                                                     @else
-                                                        <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('profile.edit', auth()->user()->id) }}">{{ __('Ubah') }}</a>
                                                     @endif
                                                 </div>
                                             </div>
