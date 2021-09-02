@@ -1,17 +1,19 @@
-@extends('layouts.app', ['class' => 'bg-default'])
+@extends('layouts.front', ['class' => 'bg-default'])
+
+@section('title', 'Halaman Login')
 
 @section('content')
-    @include('layouts.headers.guest')
 
-    <div class="container mt--8 pb-5">
+    <div class="fluid-container py-5" style="background-image: url('https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?crop=entropy&cs=srgb&dl=pexels-luis-quintero-2774556.jpg&fit=crop&fm=jpg&h=853&w=1280');background-repeat:no-repeat;
+    background-size:cover;">
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-7">
-                <div class="card bg-secondary shadow border-0">
+                <div class="card">
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
-                            <small>
+                            <h5>
                                 {{ __('Silahkan masukkan email dan kata sandi untuk masuk ke sistem') }}
-                            </small>
+                            </h5>
                         </div>
                         <form role="form" method="POST" action="{{ route('login') }}">
                             @csrf
@@ -19,7 +21,7 @@
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
                                 <div class="input-group input-group-alternative">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                        <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                                     </div>
                                     <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" required autofocus>
                                 </div>
@@ -32,7 +34,7 @@
                             <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                                 <div class="input-group input-group-alternative">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-lock    "></i></span>
                                     </div>
                                     <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Kata Sandi') }}" type="password" required>
                                 </div>
@@ -48,19 +50,19 @@
                                     <span class="text-muted">{{ __('Ingatkan saya') }}</span>
                                 </label>
                             </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    @if (Route::has('password.request'))
+                                        <a href="{{ route('password.request') }}">
+                                            <small>{{ __('Lupa kata sandi?') }}</small>
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary my-4">{{ __('Masuk') }}</button>
+                                <button type="submit" class="btn btn-primary btn-block mt-3">{{ __('Masuk') }}</button>
                             </div>
                         </form>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-6">
-                        @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="text-light">
-                                <small>{{ __('Lupa kata sandi?') }}</small>
-                            </a>
-                        @endif
                     </div>
                 </div>
             </div>
