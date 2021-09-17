@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') | {{ config('app.name', 'Konferensi') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'ICOGH 2021') }}</title>
     <!-- Stylesheets -->
     <link href="{{ asset('front/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
@@ -12,8 +12,8 @@
     <!--Color Switcher Mockup-->
     <link href="{{ asset('front/css/color-switcher-design.css') }}" rel="stylesheet">
 
-    <link rel="shortcut icon" href="{{ asset('front/images/favicon.png') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('front/images/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('front/images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('front/images/favicon.ico') }}" type="image/x-icon">
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,9 +25,9 @@
 
     <div class="page-wrapper">
 
-        <!-- Preloader -->
+        {{-- <!-- Preloader -->
         <div class="preloader"></div>
-        <!-- Header span -->
+        <!-- Header span --> --}}
 
         <!-- Header Span -->
         <span class="header-span"></span>
@@ -37,7 +37,7 @@
             <div class="main-box">
                 <div class="auto-container clearfix">
                     <div class="logo-box">
-                        <div class="logo"><a href="index.html"><img
+                        <div class="logo"><a href="{{url('/')}}"><img
                                     src="{{ asset('front/images/logo-2.png') }}" alt="" title=""></a></div>
                     </div>
 
@@ -58,20 +58,21 @@
 
                             <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li><a href="contact.html">Beranda</a></li>
-                                    <li class="dropdown"><a href="about-us.html">Unduh</a>
+                                    <li><a href="{{url('/')}}">Home</a></li>
+                                    <li class="dropdown"><a href="#">Download</a>
                                         <ul>
-                                            <li><a href="about-us.html">Poster</a></li>
-                                            <li><a href="pricing.html">Template</a></li>
+                                            <li><a href="{{asset('poster.jpg')}}" target="_blank">Poster</a></li>
+                                            <li><a href="{{asset('template.pdf')}}" target="_blank">Template</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="speakers.html">Informasi</a>
+                                    <li class="dropdown"><a href="#">Information</a>
                                         <ul>
-                                            <li><a href="speakers.html">Speakers</a></li>
-                                            <li><a href="speakers-detail.html">Pembayaran</a></li>
+                                            <li><a href="{{url('/#speakers')}}">Speakers</a></li>
+                                            <li><a href="{{url('/#date')}}">Important Date</a></li>
+                                            <li><a href="{{url('/#fee')}}">Fee</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Kontak Kami</a></li>
+                                    <li><a href="#kontak">Our Contact</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -82,7 +83,7 @@
                             <!-- Button Box -->
                             <div class="btn-box">
                                 <a href="{{route('register')}}" class="theme-btn btn-style-one"><span
-                                        class="btn-title">Daftar</span></a>
+                                        class="btn-title">Register</span></a>
                             </div>
                         </div>
                     </div>
@@ -96,7 +97,7 @@
 
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                 <nav class="menu-box">
-                    <div class="nav-logo"><a href="index.html"><img
+                    <div class="nav-logo"><a href="{{url('/')}}"><img
                                 src="{{ asset('front/images/logo-2.png') }}" alt="" title=""></a>
                     </div>
 
@@ -134,22 +135,22 @@
         </section>
         <!--End Subscribe Section --> --}}
         <!-- Main Footer -->
-        <footer class="main-footer style-two">
+        <footer class="main-footer style-two" id="kontak">
             <div class="auto-container">
                 <!-- Footer Content -->
                 <div class="footer-content">
                     <div class="footer-logo"><a href="#"><img src="{{ asset('front/images/logo.png') }}"
                                 alt=""></a></div>
                     <div class="copyright-text">
-                        International Conference on Applied Economics and Social Science (ICAESS 2021). This conference aim is to showcase research applications conducted by researchers. Research gap between academic and industries has become a major challenge which is expected to be addressed during the conference.
+                        1st INTERNASIONAL CONFERENCE ON GLOBAL HEALTH (ICOGH)<br>“Contribution of Science and Technology in The Prevention and Control of Pandemic Covid-19 through Nursing and Physical Activity”
                         <br>
-                        <h4>Kontak Kami</h4>
-                        Alamatnya disini<br>
-                        <i class="fa fa-envelope" aria-hidden="true"></i> : willy@wonka.com
-                        <i class="fa fa-phone" aria-hidden="true"></i> : +62 823 5045 3943
+                        <h5>Our Contact</h5>
+                        Jln. Prof. Dr. Hamka Air Tawar Padang - Sumatera Barat 25131<br>
+                        <i class="fa fa-envelope" aria-hidden="true"></i> : icogh.unp@gmail.com<br>
+                        <i class="fa fa-phone" aria-hidden="true"></i> : +62 813-7401-1444 (Mariza Elvira ) +62 823-8903-5532 (Debby Silvia Dewi)
                         <br>
                         © Copyright {{date('Y')}} All Rights Reserved by <a
-                            href="index.html">Expert-Themes</a>
+                            href="{{url('/')}}">1st ICOGH 2021</a>
                     </div>
                 </div>
             </div>
